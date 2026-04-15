@@ -46,4 +46,4 @@ jobs:
         continue-on-error: true
         run: |
           echo "Starting application..."
-          mvn exec:java -Dexec.mainClass="com.novibe.App" -Dexec.args="--enable-preview"
+          mvn exec:java -Dexec.mainClass="com.novibe.App"
