@@ -27,8 +27,11 @@ public class HostsOverrideListsLoader extends ListLoader<HostsOverrideListsLoade
         }
 
         int delimiter = line.indexOf(" ");
-        String ip = line.substring(0, delimiter).strip();
-        String website = removeWWW(line.substring(delimiter).strip());
+
+        String ip = line.substring(0, delimiter).trim();
+        String website = line.substring(delimiter).trim();
+
+        website = removeWWW(website);
 
         if (ip.isEmpty() || website.isEmpty()) {
             return null;
