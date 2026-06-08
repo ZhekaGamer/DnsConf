@@ -35,7 +35,7 @@ jobs:
         run: mvn -B clean package
 
       - name: Monthly Keep-alive commit
-        if: github.event_name == 'schedule' && contains(github.event.schedule, '0 0 1 * *')
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && contains(github.event.schedule, '0 0 1 * *'))
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
